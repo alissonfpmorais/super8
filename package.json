@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ASPNETCORE_ENVIRONMENT=Production dotnet run --project src/super8.Client",
+    "dev": "ASPNETCORE_ENVIRONMENT=Development dotnet run --project src/super8.Client",
+    "dev:watch": "ASPNETCORE_ENVIRONMENT=Development dotnet watch --project src/super8.Client",
     "styles": "npx tailwindcss -i ./input.css -o ./src/super8.Client/wwwroot/css/output.css",
     "styles:watch": "npm run styles -- --watch"
   },
