@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["fsi", "build.fsx", "--watch"],
+            "isBackground": true,
+            "problemMatcher": {
+                "fileLocation": "absolute",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": {
+                        "regexp": "Started Fable compilation..."
+                    }
+                },
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+),(\\d+)\\): \\((\\d+),(\\d+)\\) (warning|error) FABLE: (.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "endLine": 4,
+                    "endColumn": 5,
+                    "severity": 6,
+                    "message": 7
+                }
+            }
+        }
+    ]
+}

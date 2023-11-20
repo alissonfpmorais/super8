@@ -1,0 +1,26 @@
+{
+  "name": "super8",
+  "version": "1.0.0",
+  "description": "movies, movies & movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "npx tailwindcss -i ./input.css -o ./src/super8.Client/wwwroot/css/output.css",
+    "styles:watch": "npm run styles -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://url.com"
+  },
+  "keywords": [
+    "movies",
+    "tmdb",
+    "elmish",
+    "bolero"
+  ],
+  "author": "Alisson Morais",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

@@ -1,0 +1,104 @@
+GET {{host}}/movie/now_playing?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/movie/popular?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/movie/top_rated?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/movie/upcoming?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>
+# <movie_id>: from response
+GET {{host}}/movie/575264?language=pt-BR
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/recommendations
+# <movie_id>: from response
+GET {{host}}/movie/575264/recommendations?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/similar
+# <movie_id>: from response
+GET {{host}}/movie/575264/similar?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/watch/providers
+# <movie_id>: from response
+GET {{host}}/movie/575264/watch/providers
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/videos
+# <movie_id>: from response
+GET {{host}}/movie/575264/videos
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/reviews
+# <movie_id>: from response
+GET {{host}}/movie/575264/reviews?language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/genre/movie/list?language=pt-BR
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{host}}/movie/<movie_id>/keywords
+# <movie_id>: from response
+GET {{host}}/movie/575264/keywords
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/search/movie?query=harry%20potter&include_adult=false&language=pt-BR&page=1
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+GET {{host}}/discover/movie?include_adult=false&include_video=true&language=pt-BR&page=1&sort_by=popularity.desc&with_cast=jack%20nicholson
+Accept: application/json
+Authorization: Bearer {{api_token}}
+
+###
+
+# GET {{image_host}}/<size>/<path>
+# <size>: https://developer.themoviedb.org/reference/configuration-details
+# <path>: from response
+GET {{image_host}}/original/1yUbmAiw2cUSpyXNIaiST7JzCtG.jpg
+
+###

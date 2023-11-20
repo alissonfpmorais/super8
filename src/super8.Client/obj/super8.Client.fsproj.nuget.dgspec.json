@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/alissonfpmorais/projects/alissonfpmorais/super8/src/super8.Client/super8.Client.fsproj": {}
+  },
+  "projects": {
+    "/home/alissonfpmorais/projects/alissonfpmorais/super8/src/super8.Client/super8.Client.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/alissonfpmorais/projects/alissonfpmorais/super8/src/super8.Client/super8.Client.fsproj",
+        "projectName": "super8.Client",
+        "projectPath": "/home/alissonfpmorais/projects/alissonfpmorais/super8/src/super8.Client/super8.Client.fsproj",
+        "packagesPath": "/home/alissonfpmorais/.nuget/packages/",
+        "outputPath": "/home/alissonfpmorais/projects/alissonfpmorais/super8/src/super8.Client/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/alissonfpmorais/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/nix/store/r6yspcqpmvjdyvysj5rj7w40xm93g869-dotnet-sdk-8.0.100-preview.5.23303.2/sdk/8.0.100-preview.5.23303.2/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Bolero": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "Bolero.Build": {
+              "target": "Package",
+              "version": "[0.*, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[7.0.400-beta.23281.1, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "target": "Package",
+              "version": "[7.0.*, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23062.2, )",
+              "autoReferenced": true,
+              "generatePathProperty": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.5.23280.8, )",
+              "autoReferenced": true,
+              "generatePathProperty": true
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[7.0.*, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.5, 7.0.5]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.7, 7.0.7]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/nix/store/r6yspcqpmvjdyvysj5rj7w40xm93g869-dotnet-sdk-8.0.100-preview.5.23303.2/sdk/8.0.100-preview.5.23303.2/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
