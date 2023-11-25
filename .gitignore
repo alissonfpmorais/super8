@@ -2,5 +2,6 @@
 .vscode/**
 src/super8.Client/bin/**
 src/super8.Client/obj/**
+node_modules/**
 
 **/*.env.json
