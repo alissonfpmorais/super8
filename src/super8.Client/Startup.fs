@@ -11,7 +11,7 @@ module Program =
     [<EntryPoint>]
     let Main args =
         let httpClient = new HttpClient()
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer <token>")
+        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMzdjNWI4OWMzNTdhMDA5NzY0MDZiZTYxZmQzNmFlZSIsInN1YiI6IjVhNjFjZGZjOTI1MTQxMGUyMzAxMmVkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oE5seX9_utdew0Ne6kWuGtuA7ihEcEMRqMoHnuBtcbk")
         
         let builder = WebAssemblyHostBuilder.CreateDefault(args)
         builder.RootComponents.Add<App.MyApp>("#main")

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./docs & dotnet publish -c Release & cp -r ./src/super8.Client/bin/Release/net7.0/publish/wwwroot ./docs",
     "start": "ASPNETCORE_ENVIRONMENT=Production dotnet run --project src/super8.Client",
     "dev": "ASPNETCORE_ENVIRONMENT=Development dotnet run --project src/super8.Client",
     "dev:watch": "ASPNETCORE_ENVIRONMENT=Development dotnet watch --project src/super8.Client",
