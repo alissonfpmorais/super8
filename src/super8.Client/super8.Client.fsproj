@@ -16,7 +16,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.*" />
     <PackageReference Include="System.Net.Http.Json" Version="7.0.*" />
   </ItemGroup>
-<!--  <ItemGroup>-->
-<!--    <_ContentIncludedByDefault Remove="wwwroot\pages\main.html" />-->
-<!--  </ItemGroup>-->
 </Project>
