@@ -1,7 +1,7 @@
 {
   "entryAssembly": "super8.Client",
   "resources": {
-    "hash": "sha256-dHU3gJlEVeRgjBUeNdC893afszo6Hb5hxDPD2UPTXQc=",
+    "hash": "sha256-fUZIi1UpY1Gnu/Moc1Ld2dNxRgqE6HVjG30ajzKhOPQ=",
     "runtime": {
       "dotnet.7.0.14.mikshhdjmu.js": "sha256-YWGUknGRzP/fgO6YjvCJKPVQNZAPEd6ll+rHfQEIW+I=",
       "dotnet.timezones.blat": "sha256-t5xviiOQTfAsF0UDhmcyalKiaehUmf/sqJl97tmPM0M=",
@@ -31,7 +31,7 @@
       "Microsoft.JSInterop.dll": "sha256-O2v/TEzGxRkJx2s8BIzjplzaBZGIjAEU8QLVvMi29Pk=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-6yDYSBiy48fNaYJlqK10GSN72A6Vsu3i/6v3Lq7kL2E=",
       "netstandard.dll": "sha256-lbliKno3qp6tKWViWDMIZY4n+Vk/YQs4CWYVhOTfOYU=",
-      "super8.Client.dll": "sha256-dKO8J4l24OZyd6216vRolT49nnXCJf12nEznMipoexg=",
+      "super8.Client.dll": "sha256-IFYXh+2OjjP6scsvQJye/wO7IHKykDBXQei1kYw669U=",
       "System.Collections.Concurrent.dll": "sha256-B0auZnrYemR2zZUPdSu8RFtXR/BTIdedre1N1tz6WZQ=",
       "System.Collections.dll": "sha256-hj0L38W+D3Hp9etHQ33oM/awIFw1wOtlVa5UtLMDtNs=",
       "System.Collections.NonGeneric.dll": "sha256-vzRiJV4anKcnTm7ed4mZ7tBomQoEys80BJGSUSlj/7U=",
