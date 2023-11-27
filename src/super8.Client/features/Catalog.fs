@@ -24,6 +24,7 @@ type DetailedMovie = {
     id: int
     description: string
     posterPath: string
+    backdropPath: string
     releaseDate: string
     revenue: int
     title: string
@@ -177,6 +178,7 @@ let responseToMovie (response: CompoundResponse) : DetailedMovie =
         id = detailedResponse.id
         description =  detailedResponse.overview
         posterPath = detailedResponse.poster_path
+        backdropPath = detailedResponse.backdrop_path
         releaseDate = releaseDate
         revenue = detailedResponse.revenue
         title = detailedResponse.title

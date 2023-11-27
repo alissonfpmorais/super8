@@ -46,36 +46,72 @@ let view (model: Model) _dispatch =
         empty()
     | Some movie ->
         div {
-            img {
-                attr.``class`` ""
-                attr.src ""
-                attr.alt ""
-            }
-            
-            span {
-                movie.title
+            div {
+                attr.``class`` "flex justify-start items-center w-full h-40"
+                attr.style ("background-image: url(https://image.tmdb.org/t/p/original" + movie.backdropPath + "); background-size: cover;")
+                
+                div {
+                    attr.``class`` "px-2 py-2 w-32 h-36"
+                    
+                    img {
+                        attr.``class`` "w-full h-full object-contain rounded-lg"
+                        attr.src ("https://image.tmdb.org/t/p/original" + movie.posterPath)
+                        attr.alt ("Poster do filme " + movie.title)
+                    }
+                }
             }
             
             div {
-                span {
-                    movie.voteAverage.ToString("0.0").Replace(".", ",")
+                attr.``class`` "grid grid-flow-row gap-4 px-4 mt-4 "
+                
+                div {
+                    span {
+                        attr.``class`` "font-bold text-2xl"
+                        movie.title
+                    }
                 }
                 
-                span {
-                    movie.releaseDate
+                div {
+                    attr.``class`` "flex justify-between items-center"
+                    
+                    span {
+                        attr.``class`` "px-2 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl font-bold font-sans"
+                        movie.voteAverage.ToString("0.0").Replace(".", ",")
+                    }
+                    
+                    span {
+                        attr.``class`` "font-bold"
+                        movie.releaseDate
+                    }
                 }
+                
+                match movie.description with
+                | "" ->
+                    empty()
+                | description ->
+                    p {
+                        span {
+                            attr.``class`` "font-bold"
+                            
+                            "Sinopse: "
+                        }
+                        
+                        description
+                    }
             }
             
-            span {
-                "Sinopse"
-            }
-            
-            p {
-                movie.description
-            }
-            
-            ul {
-                forEach movie.recommendations (toCard model.detailedMoviePath)
+            div {
+                attr.``class`` "mt-4"
+                
+                span {
+                    attr.``class`` "px-4 font-bold"
+                    "Recomendações"
+                }
+                
+                ul {
+                    attr.``class`` "grid grid-flow-col auto-cols-max gap-4 mt-2 px-4 pb-4 overflow-x-scroll"
+                    forEach movie.recommendations (toCard model.detailedMoviePath)
+                }
             }
         }
 
