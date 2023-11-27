@@ -79,7 +79,7 @@ let view (model: Model) dispatch =
             
             a {
                 attr.``class`` "ml-4 font-medium text-neutral-100 text-2xl"
-                attr.href "/"
+                attr.href "./"
                 
                 "Super"
                 
