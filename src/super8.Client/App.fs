@@ -27,7 +27,7 @@ type Message =
 let router = Router.infer SetPage (fun model -> model.page)
 
 let init (http: HttpClient) _ =
-    let homeModel, homeCmds = Pages.Home.init http "/movie"
+    let homeModel, homeCmds = Pages.Home.init http "movie"
     
     {
         page = Home
@@ -40,7 +40,7 @@ let init (http: HttpClient) _ =
 let changePage (http: HttpClient) (page: Page) (model: Model) =
     match page with
     | Home ->
-        let homeModel, homeCmds = Pages.Home.init http "/movie"
+        let homeModel, homeCmds = Pages.Home.init http "movie"
         {
             model with
                 page = page
@@ -48,7 +48,7 @@ let changePage (http: HttpClient) (page: Page) (model: Model) =
         },
         Cmd.map HomeMessages homeCmds
     | MovieDetails movieId ->
-        let movieDetailsModel, movieDetailsCmds = Pages.MovieDetails.init http movieId "/movie"
+        let movieDetailsModel, movieDetailsCmds = Pages.MovieDetails.init http movieId "movie"
         {
             model with
                 page = page
