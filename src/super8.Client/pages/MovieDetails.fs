@@ -36,7 +36,7 @@ let update (_http: HttpClient) (message: Message) (model: Model) =
 
 // VIEW
 
-let toCard (path: string) (movie: Catalog.BasicMovie) =
+let private toCard (path: string) (movie: Catalog.BasicMovie) =
     let card = Catalog.card movie path
     li { card }
     
@@ -45,13 +45,14 @@ let view (model: Model) _dispatch =
     | None ->
         empty()
     | Some movie ->
-        div {
+        let hasRecommendations = movie.recommendations.Length > 0
+        section {
             div {
-                attr.``class`` "flex justify-start items-center w-full h-40"
+                attr.``class`` "flex justify-start items-center w-full h-40 md:h-80"
                 attr.style ("background-image: url(https://image.tmdb.org/t/p/original" + movie.backdropPath + "); background-size: cover;")
                 
                 div {
-                    attr.``class`` "px-2 py-2 w-32 h-36"
+                    attr.``class`` "p-2 md:p-6 w-32 md:w-48 h-36 md:h-72"
                     
                     img {
                         attr.``class`` "w-full h-full object-contain rounded-lg"
@@ -66,7 +67,7 @@ let view (model: Model) _dispatch =
                 
                 div {
                     span {
-                        attr.``class`` "font-bold text-2xl"
+                        attr.``class`` "font-bold text-2xl md:text-4xl"
                         movie.title
                     }
                 }
@@ -75,12 +76,12 @@ let view (model: Model) _dispatch =
                     attr.``class`` "flex justify-between items-center"
                     
                     span {
-                        attr.``class`` "px-2 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl font-bold font-sans"
+                        attr.``class`` "px-2 md:px-3 md:py-1 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl md:text-3xl font-bold font-sans"
                         movie.voteAverage.ToString("0.0").Replace(".", ",")
                     }
                     
                     span {
-                        attr.``class`` "font-bold"
+                        attr.``class`` "font-bold md:text-2xl"
                         movie.releaseDate
                     }
                 }
@@ -90,9 +91,10 @@ let view (model: Model) _dispatch =
                     empty()
                 | description ->
                     p {
+                        attr.``class`` "md:text-2xl"
+                    
                         span {
                             attr.``class`` "font-bold"
-                            
                             "Sinopse: "
                         }
                         
@@ -100,18 +102,22 @@ let view (model: Model) _dispatch =
                     }
             }
             
-            div {
-                attr.``class`` "mt-4"
-                
-                span {
-                    attr.``class`` "px-4 font-bold"
-                    "Recomendações"
+            cond hasRecommendations <| function
+            | false ->
+                empty()
+            | true ->
+                div {
+                    attr.``class`` "mt-4"
+                    
+                    span {
+                        attr.``class`` "px-4 font-bold md:text-2xl"
+                        "Recomendações"
+                    }
+                    
+                    ul {
+                        attr.``class`` "grid grid-flow-col auto-cols-max gap-4 mt-2 px-4 pb-4 overflow-x-scroll"
+                        forEach movie.recommendations (toCard model.detailedMoviePath)
+                    }
                 }
-                
-                ul {
-                    attr.``class`` "grid grid-flow-col auto-cols-max gap-4 mt-2 px-4 pb-4 overflow-x-scroll"
-                    forEach movie.recommendations (toCard model.detailedMoviePath)
-                }
-            }
         }
 

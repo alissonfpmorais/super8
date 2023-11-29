@@ -212,7 +212,7 @@ let featuredCard (movie: BasicMovie) (path: string) =
             attr.``class`` "relative"
             
             span {
-                attr.``class`` "absolute top-0 left-0 m-4 px-2 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl font-bold font-sans"
+                attr.``class`` "absolute top-0 left-0 m-4 px-2 md:px-4 md:py-2 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl md:text-3xl font-bold font-sans"
                 movie.voteAverage.ToString("0.0").Replace(".", ",")
             }
             
@@ -226,19 +226,19 @@ let featuredCard (movie: BasicMovie) (path: string) =
 
 let card (movie: BasicMovie) (path: string) =
     a {
-        attr.``class`` "flex justify-start bg-gray-100 shadow rounded-xl w-36 h-52"
+        attr.``class`` "flex justify-start bg-gray-100 shadow rounded-xl w-36 md:w-48 h-52 md:h-72"
         attr.href (path + "/" + movie.id.ToString())
         
         div {
             attr.``class`` "relative"
             
             span {
-                attr.``class`` "absolute top-0 left-0 ml-2 mt-2 px-2 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl font-bold font-sans"
+                attr.``class`` "absolute top-0 left-0 ml-2 mt-2 px-2 md:px-3 md:py-1 border-2 border-rose-500 bg-neutral-700 rounded-full text-neutral-100 text-xl md:text-2xl font-bold font-sans"
                 movie.voteAverage.ToString("0.0").Replace(".", ",")
             }
             
             img {
-                attr.``class`` "w-36 h-52 rounded-xl"
+                attr.``class`` "w-36 md:w-48 h-52 md:h-72 rounded-xl"
                 attr.src ("https://image.tmdb.org/t/p/original" + movie.poster)
                 attr.alt ("Pôster do filme" <> movie.title)
             }

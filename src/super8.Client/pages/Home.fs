@@ -134,7 +134,7 @@ type private MoviesArea = {
     dispatch: Dispatch<Message>
 }
 
-let toCard (path: string) (movie: Catalog.BasicMovie) =
+let private toCard (path: string) (movie: Catalog.BasicMovie) =
     let card = Catalog.card movie path
     li { card }
 
@@ -143,21 +143,21 @@ let private toMoviesArea (moviesArea: MoviesArea) =
     
     cond hasMovies <| function
     | false ->
-        div {
+        section {
             attr.``class`` "w-full h-screen"
         }
     | true ->
         section {
-            attr.``class`` "grid grid-flow-row grid-cols-1 gap-4 first:mt-4 mt-8 mb-4"
+            attr.``class`` "grid grid-flow-row grid-cols-1 gap-4 first:mt-4 mt-8 first:md:mt-8 mb-4"
             
             div {
                 attr.``class`` "flex items-center justify-start px-4 uppercase font-bold"
                 
                 div {
-                    attr.``class`` "border-b-2 border-rose-500 border-dashed"
+                    attr.``class`` "border-b-2 border-rose-500 border-dashed md:text-2xl"
                     
                     span {
-                        attr.``class`` "text-rose-500 mr-2"   
+                        attr.``class`` "text-rose-500 mr-2"
                         "▷"
                     }
                     

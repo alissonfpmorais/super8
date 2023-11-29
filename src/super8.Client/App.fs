@@ -35,7 +35,6 @@ let init (http: HttpClient) _ =
         movieDetailsModel = None 
     },
     Cmd.map HomeMessages homeCmds
-    
 
 let changePage (http: HttpClient) (page: Page) (model: Model) =
     match page with
@@ -75,16 +74,16 @@ let view (model: Model) dispatch =
     concat {
         header {
             attr.id "page-header"
-            attr.``class`` "sticky top-0 flex justify-start items-center w-full h-16 bg-stone-800 drop-shadow-lg z-10"
+            attr.``class`` "sticky top-0 flex justify-start items-center w-full h-16 md:h-28 bg-stone-800 drop-shadow-lg z-10"
             
             a {
-                attr.``class`` "ml-4 font-medium text-neutral-100 text-2xl"
+                attr.``class`` "ml-4 font-medium text-neutral-100 text-2xl md:text-4xl"
                 attr.href "./"
                 
                 "Super"
                 
                 span {
-                    attr.``class`` "font-bold text-rose-500 text-2xl"
+                    attr.``class`` "font-bold text-rose-500 text-2xl md:text-4xl"
                     "8"   
                 }
             }
