@@ -227,7 +227,7 @@ let private toMoviesArea (moviesArea: MoviesArea) =
 let view (model: Model) (dispatch: Dispatch<Message>) =
     let moviesAreas = [|
         {
-            title = "Em cartaz"
+            title = "Já disponíveis"
             movieSection = model.nowPlaying
             movieCategory = Catalog.MoviesCategory.NowPlaying
             path = model.detailedMoviePath
@@ -248,7 +248,7 @@ let view (model: Model) (dispatch: Dispatch<Message>) =
             dispatch = dispatch
         }
         {
-            title = "Próximos lançamentos"
+            title = "Lançamentos"
             movieSection = model.upcoming
             movieCategory = Catalog.MoviesCategory.Upcoming
             path = model.detailedMoviePath
