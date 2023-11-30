@@ -13,7 +13,9 @@ open Elmish
 type BasicMovie = {
     id: int
     title: string
+    description: string
     poster: string
+    releaseDate: string
     voteAverage: float
 }
 
@@ -125,11 +127,22 @@ let private categoryToString (category: MoviesCategory) =
 
 // COMMANDS
 
+// let private releaseDate  =
+//     match releaseDate.ToString().Split("-") with
+//     | [|year; month; day|] -> day.ToString() + "/" + month.ToString() + "/" + year.ToString()
+//     | _format -> "-"
+
 let private itemToMovie (item: MovieItem) =
+    let releaseDate =
+        match item.release_date.ToString().Split("-") with
+        | [|year; month; day|] -> day.ToString() + "/" + month.ToString() + "/" + year.ToString()
+        | _format -> "-"
     {
         id = item.id
-        title = item.title 
+        title = item.title
+        description = item.overview
         poster = item.poster_path
+        releaseDate = releaseDate
         voteAverage = item.vote_average
     }
  
@@ -205,7 +218,7 @@ let fetchDetailedMovie (http: HttpClient) (movieId: int) (toMsg: DetailedMovie -
     
 let featuredCard (movie: BasicMovie) (path: string) =
     a {
-        attr.``class`` "w-full h-full"
+        attr.``class`` "w-full h-full lg:rounded-xl"
         attr.href (path + "/" + movie.id.ToString())
         
         div {
@@ -217,11 +230,41 @@ let featuredCard (movie: BasicMovie) (path: string) =
             }
             
             img {
-                attr.``class`` "w-full"
+                attr.``class`` "w-full lg:rounded-xl"
                 attr.src ("https://image.tmdb.org/t/p/original" + movie.poster)
                 attr.alt ("Pôster do filme" <> movie.title)
             }
         }
+    }
+    
+let featuredDetails (movie: BasicMovie) (path: string) =
+    div {
+        attr.``class`` "flex flex-col justify-start items-start ml-4"
+        
+        a {
+            attr.``class`` "hover:text-stone-500"
+            attr.href (path + "/" + movie.id.ToString())
+            
+            span {
+                attr.``class`` "font-bold text-4xl"
+                movie.title
+            }
+        }
+        
+        match movie.description with
+        | "" ->
+            empty()
+        | description ->
+            p {
+                attr.``class`` "mt-4 text-2xl"
+            
+                span {
+                    attr.``class`` "font-bold"
+                    "Sinopse: "
+                }
+                
+                description
+            }
     }
 
 let card (movie: BasicMovie) (path: string) =

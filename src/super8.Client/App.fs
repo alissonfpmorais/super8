@@ -74,7 +74,7 @@ let view (model: Model) dispatch =
     concat {
         header {
             attr.id "page-header"
-            attr.``class`` "sticky top-0 flex justify-start items-center w-full h-16 md:h-28 bg-stone-800 drop-shadow-lg z-10"
+            attr.``class`` "sticky top-0 flex justify-start items-center w-full h-16 md:h-28 lg:h-20 bg-stone-800 drop-shadow-lg z-10"
             
             a {
                 attr.``class`` "ml-4 font-medium text-neutral-100 text-2xl md:text-4xl"
@@ -91,6 +91,7 @@ let view (model: Model) dispatch =
         
         main {
             attr.id "page-content"
+            attr.``class`` "lg:container lg:mx-auto"
             
             cond model.page <| function
             | Home -> Pages.Home.view model.homeModel (fun homeMsg -> dispatch <| HomeMessages homeMsg)

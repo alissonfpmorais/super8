@@ -63,7 +63,7 @@ let view (model: Model) _dispatch =
             }
             
             div {
-                attr.``class`` "grid grid-flow-row gap-4 px-4 mt-4 "
+                attr.``class`` "grid grid-flow-row gap-4 px-4 mt-4"
                 
                 div {
                     span {

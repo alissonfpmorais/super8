@@ -143,12 +143,12 @@ let private toMoviesArea (moviesArea: MoviesArea) =
     
     cond hasMovies <| function
     | false ->
-        section {
+        div {
             attr.``class`` "w-full h-screen"
         }
     | true ->
         section {
-            attr.``class`` "grid grid-flow-row grid-cols-1 gap-4 first:mt-4 mt-8 first:md:mt-8 mb-4"
+            attr.``class`` "grid grid-flow-row grid-cols-1 lg:w-3/5 gap-4 first:mt-4 mt-8 first:md:mt-8 mb-4"
             
             div {
                 attr.``class`` "flex items-center justify-start px-4 uppercase font-bold"
@@ -169,22 +169,41 @@ let private toMoviesArea (moviesArea: MoviesArea) =
             }
             
             picture {
+                attr.``class`` "lg:hidden"
+                
                 cond moviesArea.movieSection.featuredMovie <| function
                 | None ->
                     div {
-                        attr.``class`` "w-full h-80"
+                        attr.``class`` "w-full h-80 lg:w-1/4 lg:h-auto"
                     }
                 | Some movie ->
                     Catalog.featuredCard movie moviesArea.path
             }
             
+            picture {
+                attr.``class`` "hidden lg:block"
+                
+                cond moviesArea.movieSection.featuredMovie <| function
+                | None ->
+                    div {
+                        attr.``class`` "w-full h-80 lg:w-1/4 lg:h-auto"
+                    }
+                | Some movie ->
+                    div {
+                        attr.``class`` "grid grid-cols-2 gap-4"
+                        
+                        Catalog.featuredCard movie moviesArea.path
+                        Catalog.featuredDetails movie moviesArea.path
+                    }
+            }
+            
             ul {
-                attr.``class`` "grid grid-flow-col auto-cols-max gap-4 px-4 pb-4 overflow-x-scroll"
+                attr.``class`` "grid grid-flow-col auto-cols-max gap-4 px-4 lg:px-0 pb-4 overflow-x-scroll"
                 forEach moviesArea.movieSection.showcasing (toCard moviesArea.path)
                 
                 li {
                     button {
-                        attr.``class`` "flex flex-col justify-center items-center w-36 h-52"
+                        attr.``class`` "flex flex-col justify-center items-center w-36 md:w-48 h-52 md:h-72"
                         attr.disabled moviesArea.movieSection.loading
                         
                         on.click (fun _event -> moviesArea.dispatch <| FetchMovies moviesArea.movieCategory)
@@ -237,7 +256,7 @@ let view (model: Model) (dispatch: Dispatch<Message>) =
         }
     |]
     div {
-        attr.``class`` "pt-2"
+        attr.``class`` "lg:flex lg:flex-col lg:justify-center lg:items-center pt-2"
         
         forEach moviesAreas toMoviesArea
     }
